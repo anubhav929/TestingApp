@@ -3,18 +3,17 @@ import sys
 import copy
 import subprocess
 
-
 """
 SETTING VARIABLES
 """
-WEB2PY_PATH = "/home/web2py"
+WEB2PY_PATH = sys.argv[1]
 if not 'WEB2PY_PATH' in os.environ:
     os.environ['WEB2PY_PATH'] = WEB2PY_PATH
 
-NEW_APP = "new_databasemigrationTest"
-OLD_APP = "old_databasemigrationTest"
-NEW_PATH = "%s/applications/%s" % (WEB2PY_PATH, NEW_APP)
-OLD_PATH = "%s/applications/%s" % (WEB2PY_PATH, OLD_APP)
+NEW_APP = sys.argv[3]
+OLD_APP = sys.argv[2]
+NEW_PATH = "%s/applications/%s" % (os.environ['WEB2PY_PATH'], NEW_APP)
+OLD_PATH = "%s/applications/%s" % (os.environ['WEB2PY_PATH'], OLD_APP)
 
 
 """
@@ -40,6 +39,7 @@ old_env = env(OLD_APP, c=None, import_models=True)
 old_db = DAL( database_string, folder = old_database_folder,\
  auto_import=True, migrate = False ,fake_migrate = True)
 
+print sys.argv
 """
 this is specific to eden thus commented
 """
