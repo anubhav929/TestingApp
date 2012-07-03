@@ -82,15 +82,15 @@ use_janrain(auth,filename='private/janrain.key')
 """
 Database for testing purpose
 """
-#Testing by removing a table , this table is removed in the next revivision
-db.define_table('removing',Field('name','string'));
-db.define_table('main',Field('remove_id','integer'))
+#This should detect one table disappeared , one field disapperaed and one field added
+db.define_table('main',Field('remove_name','string'))
 
-#This table is used for renmaing a field
-db.define_table('renaming',Field('renamed','string'));
+#This should detect one field disappeared and one field added
+db.define_table('renaming',Field('renamed2','string'))
 
-#This table is used is used for adding and deleting a field
-db.define_table('edit',Field('name','string'));
+#This should detect one field disappered , one field added and on table added
+db.define_table('edit',Field('new_id','integer'))
+db.define_table('added',Field('name','string'))
 
 
 
